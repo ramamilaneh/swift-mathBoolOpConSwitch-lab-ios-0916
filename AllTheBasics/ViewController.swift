@@ -14,55 +14,58 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func averageIsAbove75( a : Double, b : Double, c : Double) ->Bool{
-        switch ((a+b+c)/3)>75{
+    func averageIsAbove75( a:Double, _ b:Double, _ c:Double) ->Bool{
+        let isAverageAbove75 = (a+b+c)/3 > 75
+        switch (isAverageAbove75){
         case true:
             return true
         default :
             return false
         }
     }
-    func passwordCombo( username : String, password : Int) ->String{
-        if((password%3 == 0 )&&(username == "Jerry")){
-            return "Welcome!"
-        }
-        if((password%3 == 0 )&&(username == "Elaine")){
-            return "Welcome!"
-        }
-        if((password%3 == 0 )&&(username == "Michael")){
-            return "Welcome!"
-        }
-        else {
+    func passwordCombo( username name : String, password : Int) ->String{
+        
+        if (password%3 == 0 ){
+            switch (name){
+            case "Jerry":
+                return "Welcome!"
+            case "Elaine":
+                return "Welcome!"
+            case "Michael":
+                return "Welcome!"
+            default :
+                return "Access Denied"
+            }
+            
+        } else {
             return "Access Denied"
         }
-    }
+     }
         
         
         
-    func numberGenerator( a : String, b : Float) ->Float{
-        var c : Float = 0.0
+    func numberGenerator( a : String, _ b : Float) ->Float{
+        
         if ((b>=10.5)&&(b<=15))||((b>=20)&&(b<=130.5)){
-            if (a == "1"){
-                c=b*1
-            }
-            if (a == "2"){
-                c=b*2
-            }
-            if (a == "3"){
-                c=b*3
-            }
-            if (a == "4"){
-                c=b*4
-            }
-            if (a == "5"){
-                c=b*5
+            switch(a){
+                
+            case "1":
+                return b*1
+            case "2":
+                return b*2
+            case "3":
+                return b*3
+            case "4":
+                return b*4
+            case "5":
+                return b*5
+            default :
+                return 0.0
             }
         } else {
-            c = 0
+            return 0.0
         }
-        return c
         
-        }
        }
 
-
+}
